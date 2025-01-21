@@ -1,4 +1,4 @@
-package com.berkayderin.springbootrestapi;
+package com.berkayderin.starter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
