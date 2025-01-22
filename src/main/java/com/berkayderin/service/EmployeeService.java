@@ -1,6 +1,7 @@
 package com.berkayderin.service;
 
 import com.berkayderin.model.Employee;
+import com.berkayderin.model.UpdateEmployeeRequest;
 import com.berkayderin.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,9 @@ public class EmployeeService {
 
     public boolean deleteEmployee(String id) {
         return employeeRepository.deleteEmployee(id);
+    }
+
+    public Employee updateEmployee(String id, UpdateEmployeeRequest req) {
+        return employeeRepository.updateEmployee(id, req);
     }
 }

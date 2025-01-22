@@ -1,6 +1,8 @@
 package com.berkayderin.repository;
 
 import com.berkayderin.model.Employee;
+import com.berkayderin.model.UpdateEmployeeRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -66,5 +68,21 @@ public class EmployeeRepository {
             return true;
         }
         return false;
+    }
+
+    public Employee updateEmployee(String id, UpdateEmployeeRequest request) {
+        Employee employeeToUpdate = getEmployeeById(id);
+
+        if (employeeToUpdate == null) {
+            return null;
+        }
+
+        employeeToUpdate.setFirstName(request.getFirstName());
+        employeeToUpdate.setLastName(request.getLastName());
+
+        int employeeIndex = employeeList.indexOf(employeeToUpdate);
+        employeeList.set(employeeIndex, employeeToUpdate);
+
+        return employeeToUpdate;
     }
 }
