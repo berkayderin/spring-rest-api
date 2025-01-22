@@ -10,9 +10,13 @@ import java.util.List;
 @Service
 public class EmployeeService {
     @Autowired
-    private EmployeeRepository employeeRepository;  // @Autowired ile entejte edilmezse employeeRepository null olur.
+    private EmployeeRepository employeeRepository; // @Autowired ile enjekte edilmezse employeeRepository null olur.
 
-    public List<Employee> getAllEmployeeList(){
+    public List<Employee> getAllEmployeeList() {
         return employeeRepository.getAllEmployeeList();
+    }
+
+    public Employee getEmployeeById(String id) {
+        return employeeRepository.getEmployeeById(id);
     }
 }
