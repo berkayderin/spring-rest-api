@@ -3,6 +3,7 @@ package com.berkayderin.controller;
 import com.berkayderin.model.Employee;
 import com.berkayderin.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,5 +43,10 @@ public class RestEmployeeController {
     @PostMapping(path = "/add")
     public Employee addEmployee(@RequestBody Employee newEmployee) {
         return employeeService.addEmployee(newEmployee);
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public boolean deleteEmployee(@PathVariable(name = "id", required = true) String id) {
+        return employeeService.deleteEmployee(id);
     }
 }
